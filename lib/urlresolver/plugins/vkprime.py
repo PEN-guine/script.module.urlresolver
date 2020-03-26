@@ -39,7 +39,7 @@ class VkPrimeResolver(UrlResolver):
         
         if r:
             html = jsunpack.unpack(r.group(1))
-            sources = helpers.scrape_sources(html, patterns=[r'''file:\s*"(?P<url>[^"]+)'''], generic_patterns=False)
+            sources = helpers.scrape_sources(html)
             if sources:
                 return helpers.pick_source(sources) + helpers.append_headers(headers)
 
